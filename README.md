@@ -2,6 +2,8 @@
 
 
 ## Overview of the analysis
+We will be using PySpark for the purpose of analyzing reviews for Vine consumers. 
+We will make use ETL process and eventually use PySpark to calculations 
 
 ## Results: 
 
@@ -27,8 +29,6 @@ Vine 5 Star:
 
 ## Deliverable 3 Requirements
 
-### Summary: In your summary, state if there is any positivity bias for reviews in the Vine program. Use the results of your analysis to support your statement. Then, provide one additional analysis that you could do with the dataset to support your statement.
-
-
-
-
+### Summary:
+We can perform the same analysis in future  to see how the results have, if they have, changed. 
+This would provide us additional insights 
