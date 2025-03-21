@@ -56,27 +56,6 @@ Contrary to what might be expected, Vine reviewers appear to be more critical in
 - PostgreSQL database
 - JDBC PostgreSQL driver
 
-### Installation & Setup
-1. Clone this repository
-```
-git clone https://github.com/yourusername/amazon-reviews-analysis.git
-```
-
-2. Install required dependencies
-```
-pip install findspark pyspark
-```
-
-3. Configure your PostgreSQL connection in the notebooks
-```python
-jdbc_url = "jdbc:postgresql://your-database-url:5432/database-name"
-config = {
-    "user": "your-username",
-    "password": "your-password",
-    "driver": "org.postgresql.Driver"
-}
-```
-
 ## Benefits & Applications
 This project demonstrates:
 - **Efficiency**: Processes millions of reviews quickly using distributed computing
