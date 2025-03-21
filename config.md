@@ -18,22 +18,22 @@ config = {
     "driver": "org.postgresql.Driver"
 }
 ```
-[SPARK]
+#### [SPARK]
 spark_version = spark-3.2.2
 driver_path = /content/postgresql-42.2.16.jar
 
-[AWS]
-# Replace with your S3 bucket information
+#### [AWS]
+- Replace with your S3 bucket information
 s3_reviews_url = https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Wireless_v1_00.tsv.gz
 
-[DATABASE]
-# Replace these with your actual database credentials
+#### [DATABASE]
+- Replace these with your actual database credentials
 jdbc_url = jdbc:postgresql://your-database-url:5432/database-name
 user = your-username
 password = your-password
 driver = org.postgresql.Driver
 
-[ETL]
-# Mode can be "append", "overwrite", "ignore", or "error"
+#### [ETL]
+- Mode can be "append", "overwrite", "ignore", or "error"
 write_mode = append
 
