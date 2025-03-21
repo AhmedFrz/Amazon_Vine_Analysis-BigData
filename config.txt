@@ -36,3 +36,4 @@ driver = org.postgresql.Driver
 [ETL]
 # Mode can be "append", "overwrite", "ignore", or "error"
 write_mode = append
+
