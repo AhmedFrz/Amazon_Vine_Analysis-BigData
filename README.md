@@ -1,12 +1,13 @@
-# Amazon Reviews Analysis
+# Amazon Reviews Analysis with PySpark
+
+![PySpark](https://img.shields.io/badge/PySpark-3.2.2-orange)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12-blue)
+![AWS](https://img.shields.io/badge/AWS-S3%20|%20RDS-yellow)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
 ## Project Overview
-This project analyzes Amazon product reviews using big data technologies to determine if there's a bias toward favorable reviews from paid Amazon Vine program members. The analysis uses PySpark to perform ETL (Extract, Transform, Load) operations and statistical analysis on large datasets.
 
-![Amazon Reviews Analysis](https://img.shields.io/badge/Data%20Analysis-Big%20Data-blue)
-![PySpark](https://img.shields.io/badge/Technology-PySpark-orange)
-![AWS](https://img.shields.io/badge/Cloud-AWS-yellow)
-![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)
+This project analyzes Amazon product reviews using big data technologies to determine if there's a bias toward favorable reviews from Amazon Vine program members. The analysis leverages Apache Spark for distributed processing and AWS for data storage and database hosting.
 
 ## Problem Statement
 Amazon's Vine program allows manufacturers and publishers to receive reviews for their products by providing them to Amazon Vine members, who are then required to publish a review. This raises an important question:
@@ -19,46 +20,94 @@ Understanding this potential bias is crucial for:
 - Vendors considering participation in the Vine program
 - Data scientists studying review authenticity and influence
 
-## Project Structure
-This repository contains two main components:
+## Key Capabilities
 
-### 1. ETL Pipeline (Amazon_Reviews_ETL.ipynb)
-- **Extract**: Retrieves Amazon review data from an AWS S3 bucket
-- **Transform**: Processes and structures the data into appropriate dataframes
-- **Load**: Transfers the processed data into a PostgreSQL database
+- **ETL Pipeline**: Extract, transform, and load large datasets from S3 to PostgreSQL
+- **Big Data Processing**: Handle millions of Amazon reviews efficiently with PySpark
+- **Statistical Analysis**: Calculate and compare rating distributions between paid and unpaid reviews
+- **Cloud Integration**: Seamless workflow between AWS S3 and RDS services
 
-### 2. Analysis (Vine_Review_Analysis.ipynb)
-- Applies statistical methods to compare review patterns
-- Filters reviews based on vote count and helpfulness 
-- Compares 5-star rating percentages between Vine and non-Vine reviews
-- Determines if there's a statistical bias in review ratings
+## Technical Architecture
 
-## Key Findings
-The analysis reveals that:
-- **36.22%** of Vine (paid) reviews were 5-star
-- **47.01%** of non-Vine (unpaid) reviews were 5-star
-
-Contrary to what might be expected, Vine reviewers appear to be more critical in their ratings than non-Vine reviewers. This suggests that the Vine program might actually be encouraging more balanced and potentially more trustworthy reviews.
+![Architecture Diagram](https://via.placeholder.com/800x400?text=Amazon+Reviews+ETL+and+Analysis+Architecture)
 
 ## Technologies Used
-- **PySpark**: For big data processing
-- **AWS S3**: Data source
-- **PostgreSQL**: For data storage and retrieval
-- **Python**: Core programming language
-- **Jupyter Notebooks**: Development environment
 
-## Getting Started
+- **Apache Spark 3.2.2**: For distributed processing of large datasets
+- **Python**: For data transformation and analysis logic
+- **Jupyter Notebooks**: For interactive development and visualization
+- **AWS S3**: Source data storage
+- **AWS RDS (PostgreSQL)**: Processed data storage
+- **JDBC**: For database connectivity
 
-### Prerequisites
-- Apache Spark (3.2.2+)
-- Python 3.6+
-- AWS account (to access S3 data)
-- PostgreSQL database
-- JDBC PostgreSQL driver
+## Key Findings
 
-## Benefits & Applications
-This project demonstrates:
-- **Efficiency**: Processes millions of reviews quickly using distributed computing
-- **Cost Reduction**: Helps vendors evaluate the ROI of paid review programs
-- **Data-Driven Decision Making**: Provides quantitative analysis for marketplace strategy
-- **Big Data Skills**: Showcases ability to handle large-scale data processing workflows
+The analysis of Amazon Wireless product reviews revealed:
+
+| Review Type | Total Reviews | 5-Star Reviews | 5-Star Percentage |
+|-------------|---------------|----------------|-------------------|
+| Vine (Paid) | 613           | 222            | 36.22%            |
+| Non-Vine    | 64,968        | 30,543         | 47.01%            |
+| **Overall** | **65,581**    | **30,765**     | **46.91%**        |
+
+**Insight**: Contrary to potential assumptions, Vine program (paid) reviewers gave proportionally fewer 5-star ratings than regular customers, suggesting no positive bias in the Vine program for the Wireless product category.
+
+## Project Structure
+
+```
+amazon-reviews-analysis/
+│
+├── Amazon_Reviews_ETL.ipynb        # ETL pipeline for processing Amazon reviews
+├── Vine_Review_Analysis.ipynb      # Statistical analysis of Vine vs. non-Vine reviews
+└── README.md                       # Project documentation
+```
+
+## Implementation Details
+
+## ETL Process
+
+1. **Extract**: Load Amazon review data from S3 in TSV format
+2. **Transform**: Create normalized tables for:
+   - Customer data
+   - Product information
+   - Review metadata
+   - Vine review details
+3. **Load**: Store transformed data in PostgreSQL for analysis
+
+## Analysis Methodology
+
+1. Filter reviews with significant interaction (20+ votes)
+2. Further filter to reviews with high-quality feedback (50%+ helpful votes)
+3. Split the dataset between Vine (paid) and non-Vine reviewers
+4. Calculate and compare rating distributions
+
+## Running the Project
+
+## Prerequisites
+
+- Python 3.7+
+- Apache Spark 3.x
+- PostgreSQL JDBC driver
+- AWS account with S3 and RDS access
+
+## Setup Instructions
+
+1. Clone the repository
+2. Install dependencies: `pip install -r requirements.txt`
+3. Configure database connection parameters
+4. Run notebooks in sequence: ETL first, then Analysis
+
+## Skills Demonstrated
+
+- **Big Data Processing**: Efficient handling of large datasets using PySpark
+- **Cloud Services Integration**: Working with AWS S3 and RDS
+- **Data Engineering**: Building robust ETL pipelines
+- **Data Analysis**: Statistical comparison and hypothesis testing
+- **Data Visualization**: Clear presentation of analysis results
+
+## Future Enhancements
+
+- Expand analysis to multiple product categories
+- Implement machine learning to predict review helpfulness
+- Create real-time dashboard for monitoring review trends
+- Perform sentiment analysis on review text
