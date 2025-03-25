@@ -27,10 +27,6 @@ Understanding this potential bias is crucial for:
 - **Statistical Analysis**: Calculate and compare rating distributions between paid and unpaid reviews
 - **Cloud Integration**: Seamless workflow between AWS S3 and RDS services
 
-## Technical Architecture
-
-![Architecture Diagram](https://via.placeholder.com/800x400?text=Amazon+Reviews+ETL+and+Analysis+Architecture)
-
 ## Technologies Used
 
 - **Apache Spark 3.2.2**: For distributed processing of large datasets
@@ -104,10 +100,3 @@ amazon-reviews-analysis/
 - **Data Engineering**: Building robust ETL pipelines
 - **Data Analysis**: Statistical comparison and hypothesis testing
 - **Data Visualization**: Clear presentation of analysis results
-
-## Future Enhancements
-
-- Expand analysis to multiple product categories
-- Implement machine learning to predict review helpfulness
-- Create real-time dashboard for monitoring review trends
-- Perform sentiment analysis on review text
